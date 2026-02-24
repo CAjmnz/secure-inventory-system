@@ -14,3 +14,8 @@ $routes->get('/login', 'Auth::login');
 $routes->post('/login', 'Auth::login');
 $routes->get('/logout', 'Auth::logout');
 $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'auth']); // We'll create Dashboard later
+$routes->get('/dashboard', 'Dashboard::index', ['filter' => 'auth']);
+
+$routes->group('admin', ['filter' => 'auth:admin'], function($routes) {
+    $routes->get('users', 'Admin::users');
+});
