@@ -19,3 +19,14 @@ $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'auth']);
 $routes->group('admin', ['filter' => 'auth:admin'], function($routes) {
     $routes->get('users', 'Admin::users');
 });
+
+$routes->group('inventory', ['filter' => 'auth'], function($routes) {
+    $routes->get('/', 'Inventory::index');
+    $routes->get('create', 'Inventory::create', ['filter' => 'auth:admin,staff']);
+    $routes->post('store', 'Inventory::store', ['filter' => 'auth:admin,staff']);
+    $routes->get('edit/(:num)', 'Inventory::edit/$1', ['filter' => 'auth:admin']);
+    $routes->post('update/(:num)', 'Inventory::update/$1', ['filter' => 'auth:admin']);
+    $routes->get('delete/(:num)', 'Inventory::delete/$1', ['filter' => 'auth:admin']);
+});
+
+
