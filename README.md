@@ -1,4 +1,5 @@
-# Secure Inventory System (CodeIgniter 4)
+# Secure Inventory System (CodeIgniter 4) 
+this is a the beta vesion this isnt perfect but i call it progress
 
 ## Project Overview
 The **Secure Inventory System** is a full-stack web application built using **CodeIgniter 4** and **MySQL**, designed to manage inventory items securely and efficiently.  
